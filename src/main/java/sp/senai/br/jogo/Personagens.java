@@ -14,27 +14,21 @@ public class Personagens {
     private Double pontosVida;
     private Double pontosMana;
     private Double pontosStamina;
-    private Double força;      
+    private Double forca;      
     private Double energia;
     private Double agilidade;
     private Double vitalidade;
-    private Double forca;
+    private Classe classe;
 
+    
+            
     public String getNome() {
         return nome;
     }
 
     public void setNome(String nome) {
         this.nome = nome;
-    }
-    public void setAtributos(Double vida,Double mana,Double Stamina,Double forca,Double energia,Double agilidade,Double vitalidade){
-      this.pontosVida    = vida;
-      this.pontosMana    = mana;
-      this.pontosStamina = Stamina;
-      this.forca         = forca;
-      this.energia       = energia;
-      this.agilidade     = agilidade;
-      this.vitalidade    = vitalidade;
+    
             
     }         
     public Double getPontosVida() {
@@ -53,12 +47,12 @@ public class Personagens {
         this.pontosMana = pontosMana;
     }
 
-    public Double getForça() {
-        return força;
+    public Double getForca() {
+        return forca;
     }
 
-    public void setForça(Double força) {
-        this.força = força;
+    public void setForça(Double forca) {
+        this.forca = forca;
     }
 
     public Double getEnergia() {
@@ -87,7 +81,7 @@ public class Personagens {
     
     public void consumirMana(Double Mana){
          this.pontosMana -= Mana;
-     }
+    }
     public void consumirStamina(Double Stamina){
          this.pontosStamina -= Stamina;
     } 
@@ -98,4 +92,19 @@ public class Personagens {
          this.pontosVida -= dano;
 
     }
+    public Classe getClasse() {
+        return classe;
+    }
+
+    public void setClasse(Classe classe) {
+        this.classe = classe;
+    
+    this.pontosVida        = classe.pontosVida;
+    this.pontosMana        = classe.pontosMana;
+    this. pontosStamina    = classe.pontosStamina;
+    this.forca             = classe.força;
+    this. energia          = classe.energia;
+    this. agilidade        = classe.agilidade;
+    this. vitalidade       = classe.vitalidade;
+}
 }

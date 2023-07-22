@@ -5,6 +5,8 @@
  */
 package sp.senai.br.jogo;
 
+import java.util.Scanner;
+
 /**
  *
  * @author aluno
@@ -22,6 +24,9 @@ public class Batalha {
     
     private int personagemVitoriasUm;
     private int personagemVitoriasDois;
+    
+     public Scanner teclado = new Scanner(System.in);
+    
     
     public boolean emAndamento = true;
         
@@ -80,7 +85,8 @@ public class Batalha {
        this.personagemDois.sofrerDanoMagico(this.ataqueUm.getDanoMagico());
        this.personagemDois.sofrerDanoFisico(this.ataqueUm.getDanoFisico());
        
-        System.out.println("Personagem 1 atacou > personagem 2");
+    System.out.printf("%s 1 atacou > %s \n", this.personagemUm.getNome(),this.personagemDois.getNome());
+         
     }  
     
     public void ataquePersonagemDois()
@@ -91,18 +97,53 @@ public class Batalha {
        this.personagemUm.sofrerDanoMagico(this.ataqueDois.getDanoMagico());
        this.personagemUm.sofrerDanoFisico(this.ataqueDois.getDanoFisico());
        
-        System.out.println("Personagem 2 atacou > pesonagem 1");
-     }
+       
+    System.out.printf("%s 2 atacou > %s \n", this.personagemDois.getNome(),this.personagemUm.getNome());
       
-      public void setAtaqueUm(Ataque ataqueUm) {
+    }
+      
+    public void setAtaqueUm(Ataque ataqueUm) {
         this.ataqueUm = ataqueUm;
     }
 
-     public void setAtaqueDois(Ataque ataqueDois) {
+    public void setAtaqueDois(Ataque ataqueDois) {
         this.ataqueDois = ataqueDois;
     }
     
-            
+    public void setNome(){    
+      System.out.println("Digite o nome do personagem 1:");
     
+      String nome = teclado.next();
+      
+      this.personagemUm.setNome(nome);
+      
+      teclado.nextLine();
+      
+      System.out.println("Digite o nome do personagem 2:");
     
+      nome = teclado.next();
+      
+      this.personagemDois.setNome(nome);
+      
+    }
+    public void setClasses()
+ {
+    System.out.println("Por favor selecione a classe do personagem 1:");
+    System.out.println("[1]mago | [2]Duelista | [3]Iron | [4]Faker");
+   
+    int classe = teclado.nextInt();
+    
+    if(classe == 1){
+    this.personagemDois.setClasse(Classe.Mago());
+    }
+    if(classe == 2){
+    this.personagemDois.setClasse(Classe.Duelista());
+    }
+    if(classe == 3){
+    this.personagemDois.setClasse(Classe.iron());
+    }
+    if(classe == 4){
+    this.personagemDois.setClasse(Classe.Faker());
+    }
+ }
 }
